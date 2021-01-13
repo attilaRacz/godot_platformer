@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/player/guy.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/sfx/shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
@@ -8,7 +9,6 @@
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
-[ext_resource path="res://assets/art/player/persanim1.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -40,15 +40,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00942698 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 49 ]
+"values": [ 5 ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "falling_weapon"
-length = 0.5
+length = 0.1
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 42 ]
+"values": [ 5 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -95,11 +95,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 42 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=6]
 length = 2.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -107,10 +108,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 0, 29, 29, 28 ]
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -131,7 +132,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-length = 1.25
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -141,10 +141,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 1, 2, 3, 4, 0 ]
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 2, 1 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -182,7 +182,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 10, 14 )
+extents = Vector2( 7.46754, 14 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 62
@@ -200,11 +200,10 @@ collision_mask = 8
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -14 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 10 )
-vframes = 11
-hframes = 7
-frame = 28
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 3
+frame = 5
 
 [node name="Gun" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
