@@ -25,12 +25,12 @@ motion_offset = Vector2( -550, 0 )
 position = Vector2( -780, 0 )
 
 [node name="Sprite1" type="Sprite" parent="Clouds/CloudGroup1"]
-position = Vector2( -200, 120 )
+position = Vector2( 152.398, 298.869 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="Clouds/CloudGroup1"]
-position = Vector2( 100, 10 )
+position = Vector2( 246.832, 108.778 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -38,12 +38,12 @@ centered = false
 position = Vector2( 0, 500 )
 
 [node name="Sprite1" type="Sprite" parent="Clouds/CloudGroup5"]
-position = Vector2( -200, 120 )
+position = Vector2( 101.674, -355.203 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="Clouds/CloudGroup5"]
-position = Vector2( 100, 10 )
+position = Vector2( 244.163, -401.131 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -51,12 +51,12 @@ centered = false
 position = Vector2( 500, 500 )
 
 [node name="Sprite1" type="Sprite" parent="Clouds/CloudGroup6"]
-position = Vector2( -200, 120 )
+position = Vector2( 29.5924, -320.497 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="Clouds/CloudGroup6"]
-position = Vector2( 100, 10 )
+position = Vector2( -308.461, -174.208 )
 texture = ExtResource( 3 )
 centered = false
 
