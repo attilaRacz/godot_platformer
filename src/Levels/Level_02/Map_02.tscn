@@ -23,7 +23,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 3, 6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -44, 240 ), Vector2( -44, 340 ), Vector2( -44, 240 ) ]
+"values": [ Vector2( -140, 240 ), Vector2( -140, 340 ), Vector2( -140, 240 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 3, 6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 560, 78 ), Vector2( 560, 178 ), Vector2( 560, 78 ) ]
+"values": [ Vector2( 660, 78 ), Vector2( 660, 178 ), Vector2( 660, 78 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 3, 6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 560, 400 ), Vector2( 560, 500 ), Vector2( 560, 400 ) ]
+"values": [ Vector2( 660, 400 ), Vector2( 660, 500 ), Vector2( 660, 400 ) ]
 }
 
 [node name="Level" type="Node2D"]
@@ -98,21 +98,21 @@ position = Vector2( 16, 0 )
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( -44, 240 )
+position = Vector2( -140, 280.76 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
 autoplay = "move"
 anims/move = SubResource( 1 )
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 560, 78 )
+position = Vector2( 660, 178 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform4"]
 autoplay = "move"
 anims/move = SubResource( 2 )
 
 [node name="Platform5" parent="Platforms" instance=ExtResource( 3 )]
-position = Vector2( 560, 449.321 )
+position = Vector2( 560, 400 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform5"]
 autoplay = "move"

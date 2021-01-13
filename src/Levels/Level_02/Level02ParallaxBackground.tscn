@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/art/background/sky.png" type="Texture" id=2]
 [ext_resource path="res://assets/art/background/cloud_1.png" type="Texture" id=3]
-[ext_resource path="res://assets/art/background/cloud_2.png" type="Texture" id=4]
-[ext_resource path="res://assets/art/background/cloud_3.png" type="Texture" id=5]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 scroll_base_scale = Vector2( 0.4, 0 )
@@ -33,26 +31,6 @@ position = Vector2( 100, 10 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Sprite3" type="Sprite" parent="Clouds/CloudGroup1"]
-position = Vector2( -60, 40 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="Clouds/CloudGroup1"]
-position = Vector2( 150, 65 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="Clouds/CloudGroup1"]
-position = Vector2( 15, 75 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="Clouds/CloudGroup1"]
-position = Vector2( 225, 35 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="CloudGroup5" type="Node2D" parent="Clouds"]
 position = Vector2( 0, 150 )
 
@@ -64,26 +42,6 @@ centered = false
 [node name="Sprite2" type="Sprite" parent="Clouds/CloudGroup5"]
 position = Vector2( 100, 10 )
 texture = ExtResource( 3 )
-centered = false
-
-[node name="Sprite3" type="Sprite" parent="Clouds/CloudGroup5"]
-position = Vector2( -60, 40 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="Clouds/CloudGroup5"]
-position = Vector2( 150, 65 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="Clouds/CloudGroup5"]
-position = Vector2( 15, 75 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="Clouds/CloudGroup5"]
-position = Vector2( 225, 35 )
-texture = ExtResource( 5 )
 centered = false
 
 [node name="CloudGroup6" type="Node2D" parent="Clouds"]
@@ -99,26 +57,6 @@ position = Vector2( 100, 10 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Sprite3" type="Sprite" parent="Clouds/CloudGroup6"]
-position = Vector2( -60, 40 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="Clouds/CloudGroup6"]
-position = Vector2( 150, 65 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="Clouds/CloudGroup6"]
-position = Vector2( 15, 75 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="Clouds/CloudGroup6"]
-position = Vector2( 225, 35 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="CloudGroup2" type="Node2D" parent="Clouds"]
 
 [node name="Sprite1" type="Sprite" parent="Clouds/CloudGroup2"]
@@ -129,26 +67,6 @@ centered = false
 [node name="Sprite2" type="Sprite" parent="Clouds/CloudGroup2"]
 position = Vector2( 100, 10 )
 texture = ExtResource( 3 )
-centered = false
-
-[node name="Sprite3" type="Sprite" parent="Clouds/CloudGroup2"]
-position = Vector2( -60, 40 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="Clouds/CloudGroup2"]
-position = Vector2( 150, 65 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="Clouds/CloudGroup2"]
-position = Vector2( 15, 75 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="Clouds/CloudGroup2"]
-position = Vector2( 225, 35 )
-texture = ExtResource( 5 )
 centered = false
 
 [node name="CloudGroup3" type="Node2D" parent="Clouds"]
@@ -164,26 +82,6 @@ position = Vector2( 100, 10 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Sprite3" type="Sprite" parent="Clouds/CloudGroup3"]
-position = Vector2( -60, 40 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="Clouds/CloudGroup3"]
-position = Vector2( 150, 65 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="Clouds/CloudGroup3"]
-position = Vector2( 15, 75 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="Clouds/CloudGroup3"]
-position = Vector2( 225, 35 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="CloudGroup4" type="Node2D" parent="Clouds"]
 position = Vector2( 780, 0 )
 
@@ -195,26 +93,6 @@ centered = false
 [node name="Sprite2" type="Sprite" parent="Clouds/CloudGroup4"]
 position = Vector2( 100, 10 )
 texture = ExtResource( 3 )
-centered = false
-
-[node name="Sprite3" type="Sprite" parent="Clouds/CloudGroup4"]
-position = Vector2( -60, 40 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="Clouds/CloudGroup4"]
-position = Vector2( 150, 65 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="Clouds/CloudGroup4"]
-position = Vector2( 15, 75 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="Clouds/CloudGroup4"]
-position = Vector2( 225, 35 )
-texture = ExtResource( 5 )
 centered = false
 
 [node name="Mountains2" type="ParallaxLayer" parent="."]

@@ -11,7 +11,7 @@
 [ext_resource path="res://src/Levels/Music.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/Gate.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=1]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ Vector2( 707, 400 ), Vector2( 566, 303 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -214,7 +214,7 @@ position = Vector2( 671.75, 375.75 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
 autoplay = "move"
 playback_process_mode = 0
-anims/move = SubResource( 17 )
+anims/move = SubResource( 1 )
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 3 )]
 position = Vector2( -47, 120.875 )
@@ -222,7 +222,7 @@ position = Vector2( -47, 120.875 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
 autoplay = "move"
 playback_process_mode = 0
-anims/move = SubResource( 4 )
+anims/move = SubResource( 2 )
 
 [node name="PlatformStatic" type="StaticBody2D" parent="Platforms"]
 position = Vector2( 569.935, 105.877 )
