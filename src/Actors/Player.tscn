@@ -11,24 +11,6 @@
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
-resource_name = "crouch"
-length = 0.01
-loop = true
-step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 3 ]
-}
-
-[sub_resource type="Animation" id=2]
 resource_name = "falling"
 length = 0.01
 loop = true
@@ -46,7 +28,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "falling_weapon"
 length = 0.1
 loop = true
@@ -64,7 +46,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 4.0
 loop = true
 step = 0.25
@@ -81,7 +63,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 step = 0.25
@@ -98,7 +80,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -114,7 +96,7 @@ tracks/0/keys = {
 "values": [ 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
 step = 0.25
@@ -131,7 +113,7 @@ tracks/0/keys = {
 "values": [ 42 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -147,7 +129,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 1, 2, 1 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 1.25
 loop = true
 step = 0.25
@@ -164,7 +146,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 1.25
 loop = true
 step = 0.25
@@ -179,6 +161,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 10, 11, 12, 13, 14, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.01
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
 }
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -203,7 +202,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
-frame = 5
+frame = 3
 
 [node name="Gun" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
@@ -220,16 +219,16 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6
-anims/crouch = SubResource( 1 )
-anims/falling = SubResource( 2 )
-anims/falling_weapon = SubResource( 3 )
-anims/idle = SubResource( 4 )
-anims/idle_weapon = SubResource( 5 )
-anims/jumping = SubResource( 6 )
-anims/jumping_weapon = SubResource( 7 )
-anims/run = SubResource( 8 )
-anims/run_weapon = SubResource( 9 )
-anims/standing_weapon_ready = SubResource( 10 )
+anims/falling = SubResource( 1 )
+anims/falling_weapon = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/idle_weapon = SubResource( 4 )
+anims/jumping = SubResource( 5 )
+anims/jumping_weapon = SubResource( 6 )
+anims/run = SubResource( 7 )
+anims/run_weapon = SubResource( 8 )
+anims/standing_weapon_ready = SubResource( 9 )
+anims/wall_slide = SubResource( 10 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )

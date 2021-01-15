@@ -124,7 +124,7 @@ func get_new_animation(is_shooting = false):
 	if is_on_floor():
 		animation_new = "run" if abs(_velocity.x) > 0.1 else "idle"
 	elif is_on_wall():
-		animation_new = "crouch"
+		animation_new = "wall_slide"
 	else:
 		animation_new = "falling" if _velocity.y > 0 else "jumping"
 	if is_shooting:
