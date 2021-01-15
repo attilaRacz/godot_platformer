@@ -12,6 +12,12 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var gun = sprite.get_node(@"Gun")
 
+const WALL_SLIDE_ACCELERATION = 10
+const MAX_WALL_SLIDE_SPEED = 50
+var double_jumps = 0
+var max_num_double_jumps = 2
+var can_double_jump = false
+
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -44,6 +50,14 @@ func _ready():
 #   you can easily move individual functions.
 func _physics_process(_delta):
 	var direction = get_direction()
+	
+	if is_on_floor(): double_jumps = max_num_double_jumps
+	
+	if Input.is_action_just_pressed("jump"):
+		if double_jumps > 0:
+			double_jumps -= 1
+			can_double_jump = true
+		else: can_double_jump = false
 
 	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
@@ -66,6 +80,11 @@ func _physics_process(_delta):
 	var is_shooting = false
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		is_shooting = gun.shoot(sprite.scale.x)
+		
+	if is_on_wall() && (Input.is_action_pressed("move_right") || Input.is_action_pressed("move_left")):
+		if _velocity.y >= 0.0:
+			_velocity.y = min(_velocity.y + WALL_SLIDE_ACCELERATION, MAX_WALL_SLIDE_SPEED)
+			#todo - play animation
 
 	var animation = get_new_animation(is_shooting)
 	if animation != animation_player.current_animation and shoot_timer.is_stopped():
@@ -77,7 +96,7 @@ func _physics_process(_delta):
 func get_direction():
 	return Vector2(
 		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
-		-1 if is_on_floor() and Input.is_action_just_pressed("jump" + action_suffix) else 0
+		-1 if (is_on_floor() || is_on_wall() || can_double_jump) and Input.is_action_just_pressed("jump" + action_suffix) else 0
 	)
 
 
@@ -104,6 +123,8 @@ func get_new_animation(is_shooting = false):
 	var animation_new = ""
 	if is_on_floor():
 		animation_new = "run" if abs(_velocity.x) > 0.1 else "idle"
+	elif is_on_wall():
+		animation_new = "crouch"
 	else:
 		animation_new = "falling" if _velocity.y > 0 else "jumping"
 	if is_shooting:
