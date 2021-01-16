@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/TileSet/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Platforms/Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Levels/Level.gd" type="Script" id=5]
+[ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Levels/Level_02/Level02ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Levels/Music.gd" type="Script" id=9]
@@ -138,3 +139,9 @@ position = Vector2( 852.542, -60.2265 )
 stream = ExtResource( 8 )
 autoplay = true
 script = ExtResource( 9 )
+
+[node name="Checkpoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( -32, 176 )
+
+[node name="Checkpoint" parent="Checkpoint" instance=ExtResource( 6 )]
+position = Vector2( 576, -160 )
