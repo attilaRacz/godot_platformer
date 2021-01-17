@@ -2,8 +2,6 @@ class_name Player
 extends Actor
 
 
-const FLOOR_DETECT_DISTANCE = 20.0
-
 export(String) var action_suffix = ""
 
 onready var platform_detector = $PlatformDetector
@@ -12,8 +10,10 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var gun = sprite.get_node(@"Gun")
 
+const FLOOR_DETECT_DISTANCE = 20.0
 const WALL_SLIDE_ACCELERATION = 10
 const MAX_WALL_SLIDE_SPEED = 50
+
 var double_jumps = 0
 var max_num_double_jumps = 2
 var can_double_jump = false
@@ -21,8 +21,6 @@ var can_double_jump = false
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
-	Save.load_data()
-	print(Save.current_checkpoint)
 	set_global_position(Save.current_checkpoint)
 	var camera: Camera2D = $Camera
 	if action_suffix == "_p1":
@@ -125,6 +123,8 @@ func calculate_move_velocity(
 func hit_checkpoint():
 	Save.load_data()
 	Save.current_checkpoint = global_position
+	print("hit:")
+	print(Save.current_checkpoint)
 	Save.save_data()
 
 func get_new_animation(is_shooting = false):

@@ -6,9 +6,11 @@
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Levels/Level.gd" type="Script" id=5]
 [ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Levels/Level_02/Level02ParallaxBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/Level_2/Level2ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Levels/Music.gd" type="Script" id=9]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "move"

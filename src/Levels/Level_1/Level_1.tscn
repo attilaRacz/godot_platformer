@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=1]
-[ext_resource path="res://src/Levels/Level_01/Map_01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Levels/Level_1/Map_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=4]
 

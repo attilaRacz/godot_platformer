@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/art/background/distant_platforms_2.png" type="Texture" id=1]
-[ext_resource path="res://assets/art/background/sky.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/background/sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/background/distant_platforms_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/art/background/cloud_1.png" type="Texture" id=3]
-[ext_resource path="res://assets/art/background/distant_platforms_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/background/distant_platforms_2.png" type="Texture" id=4]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 scroll_base_scale = Vector2( 0.4, 0 )
@@ -14,7 +14,7 @@ motion_mirroring = Vector2( 400, 0 )
 [node name="Sprite" type="Sprite" parent="Sky"]
 position = Vector2( 0, 1.49829 )
 scale = Vector2( 64, 0.94 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
@@ -105,7 +105,7 @@ motion_scale = Vector2( 0.2, 1 )
 [node name="Sprite" type="Sprite" parent="Mountains2"]
 position = Vector2( 0, -64 )
 scale = Vector2( 2, 1 )
-texture = ExtResource( 1 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0.082489, 10.465, 381.757, 117.325 )
 
@@ -116,6 +116,6 @@ motion_scale = Vector2( 0.4, 1 )
 [node name="Sprite" type="Sprite" parent="Mountains1"]
 position = Vector2( 0, -62.4126 )
 scale = Vector2( 2, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 395.9, 128 )
