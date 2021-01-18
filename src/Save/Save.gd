@@ -7,6 +7,8 @@ onready var current_level = 1
 var level_1 = "res://src/Levels/Level_1/Level_1.tscn"
 var level_2 = "res://src/Levels/Level_2/Level_2.tscn"
 
+var levels = []
+var unlocked_levels = 1
 
 func save_data():
 	var file = File.new()
