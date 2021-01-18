@@ -74,10 +74,8 @@ func _physics_process(_delta):
 	if direction.x != 0:
 		sprite.scale.x = 1 if direction.x > 0 else -1
 
-	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
+	# We use the sprite's scale to store the players look direction which allows us to shoot
 	# bullets forward.
-	# There are many situations like these where you can reuse existing properties instead of
-	# creating new variables.
 	var is_shooting = false
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		is_shooting = gun.shoot(sprite.scale.x)
@@ -85,7 +83,6 @@ func _physics_process(_delta):
 	if is_on_wall() && (Input.is_action_pressed("move_right") || Input.is_action_pressed("move_left")):
 		if _velocity.y >= 0.0:
 			_velocity.y = min(_velocity.y + WALL_SLIDE_ACCELERATION, MAX_WALL_SLIDE_SPEED)
-			#todo - play animation
 
 	var animation = get_new_animation(is_shooting)
 	if animation != animation_player.current_animation and shoot_timer.is_stopped():

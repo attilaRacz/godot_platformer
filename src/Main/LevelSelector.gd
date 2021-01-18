@@ -15,5 +15,6 @@ func _ready():
 
 func change_level(level_number):
 	Save.current_level = level_number
+	Save.current_checkpoint = Vector2()
 	Save.save_data()
 	get_tree().change_scene("res://src/Levels/Level_" + level_number + "/Level_" + level_number + ".tscn")
