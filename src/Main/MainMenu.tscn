@@ -21,9 +21,9 @@ margin_bottom = 480.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 365.0
-margin_top = 206.0
+margin_top = 197.0
 margin_right = 435.0
-margin_bottom = 274.0
+margin_bottom = 283.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 70.0
@@ -37,28 +37,28 @@ text = "Game Title"
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 18.0
 margin_right = 70.0
-margin_bottom = 68.0
+margin_bottom = 86.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
 margin_left = 3.0
 margin_right = 66.0
-margin_bottom = 50.0
+margin_bottom = 68.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_right = 63.0
 margin_bottom = 14.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+[node name="PlayContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
 margin_right = 63.0
 margin_bottom = 14.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/PlayContainer"]
 margin_right = 8.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 8, 14 )
 text = ">"
 
-[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Play" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/PlayContainer"]
 margin_left = 12.0
 margin_top = -1.0
 margin_right = 63.0
@@ -66,23 +66,46 @@ margin_bottom = 13.0
 rect_min_size = Vector2( 51, 14 )
 text = "Play"
 
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="LevelsContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 18.0
 margin_right = 63.0
 margin_bottom = 32.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LevelsContainer"]
 margin_right = 63.0
 margin_bottom = 14.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LevelsContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 8, 14 )
+text = ">"
+
+[node name="Levels" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LevelsContainer/HBoxContainer"]
+margin_left = 12.0
+margin_top = -1.0
+margin_right = 63.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 51, 14 )
+text = "Levels"
+
+[node name="OptionsContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 36.0
+margin_right = 63.0
+margin_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/OptionsContainer"]
+margin_right = 63.0
+margin_bottom = 14.0
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/OptionsContainer/HBoxContainer"]
 margin_top = -1.0
 margin_right = 8.0
 margin_bottom = 13.0
 rect_min_size = Vector2( 8, 14 )
 text = ">"
 
-[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+[node name="Options" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/OptionsContainer/HBoxContainer"]
 margin_left = 12.0
 margin_top = -1.0
 margin_right = 63.0
@@ -90,23 +113,23 @@ margin_bottom = 13.0
 rect_min_size = Vector2( 51, 14 )
 text = "Options"
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 36.0
+[node name="ExitContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 54.0
 margin_right = 63.0
-margin_bottom = 50.0
+margin_bottom = 68.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer"]
 margin_right = 63.0
 margin_bottom = 14.0
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer"]
 margin_top = -1.0
 margin_right = 8.0
 margin_bottom = 13.0
 rect_min_size = Vector2( 8, 14 )
 text = ">"
 
-[node name="OptionName" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+[node name="Exit" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer"]
 margin_left = 12.0
 margin_top = -1.0
 margin_right = 63.0
