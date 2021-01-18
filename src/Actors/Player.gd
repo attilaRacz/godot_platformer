@@ -21,7 +21,7 @@ var can_double_jump = false
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
-	set_global_position(Save.current_checkpoint)
+	set_global_position(State.current_checkpoint)
 	var camera: Camera2D = $Camera
 	if action_suffix == "_p1":
 		camera.custom_viewport = $"../.."
@@ -118,9 +118,9 @@ func calculate_move_velocity(
 
 
 func hit_checkpoint():
-	Save.load_data()
-	Save.current_checkpoint = global_position
-	Save.save_data()
+	State.load_data()
+	State.current_checkpoint = global_position
+	State.save_data()
 
 func get_new_animation(is_shooting = false):
 	var animation_new = ""

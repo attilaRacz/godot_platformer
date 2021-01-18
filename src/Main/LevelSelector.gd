@@ -2,11 +2,11 @@ extends Control
 
 
 func _ready():
-	Save.load_data()
+	State.load_data()
 	for i in range($Levels.get_child_count()):
-		Save.levels.append(i + 1)
+		State.levels.append(i + 1)
 	for level in $Levels.get_children():
-		if str2var(level.name) in range(Save.unlocked_levels + 1):
+		if str2var(level.name) in range(State.unlocked_levels + 1):
 			level.disabled = false
 			level.connect("pressed", self, "change_level", [level.name])
 		else:
@@ -14,7 +14,7 @@ func _ready():
 
 
 func change_level(level_number):
-	Save.current_level = level_number
-	Save.current_checkpoint = Vector2()
-	Save.save_data()
-	get_tree().change_scene("res://src/Levels/Level_" + level_number + "/Level_" + level_number + ".tscn")
+	State.current_level = level_number
+	State.current_checkpoint = Vector2()
+	State.save_data()
+	State.move_to_level(level_number)

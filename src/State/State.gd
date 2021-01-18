@@ -3,12 +3,15 @@ extends Node
 
 onready var current_checkpoint = Vector2()
 onready var current_level = 1
-
-var level_1 = "res://src/Levels/Level_1/Level_1.tscn"
-var level_2 = "res://src/Levels/Level_2/Level_2.tscn"
-
 var levels = []
 var unlocked_levels = 1
+
+
+const level_dict = {
+	1: "res://src/Levels/Level_1/Level_1.tscn", 
+	2: "res://src/Levels/Level_2/Level_2.tscn"
+	# todo - expand with levels
+	}
 
 func save_data():
 	var file = File.new()
@@ -36,3 +39,14 @@ func load_data():
 	print(saved_status)
 	file.close()
 	return true
+
+func move_to_next_level():
+	current_level += 1
+	current_checkpoint = Vector2()
+	if unlocked_levels < current_level:
+		unlocked_levels = current_level
+	save_data()
+	move_to_level(current_level)
+
+func move_to_level(_current_level):
+	get_tree().change_scene(level_dict.get(int(_current_level)))

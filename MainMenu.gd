@@ -25,15 +25,9 @@ func _process(delta):
 
 
 func init_level():
-	Save.load_data()
-	set_global_position(Save.current_checkpoint)
-
-	if Save.current_level == 1:
-		get_tree().change_scene("res://src/Levels/Level_1/Level_1.tscn")
-		queue_free()
-	if Save.current_level == 2:
-		get_tree().change_scene("res://src/Levels/Level_2/Level_2.tscn")
-		queue_free()
+	State.load_data()
+	set_global_position(State.current_checkpoint)
+	State.move_to_level(State.current_level)
 
 
 func handle_selection(current_selection):

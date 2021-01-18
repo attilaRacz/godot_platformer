@@ -94,7 +94,7 @@ target_fps="60"
 
 [autoload]
 
-Save="*res://src/Save/Save.gd"
+State="*res://src/State/State.gd"
 
 [debug]
 
