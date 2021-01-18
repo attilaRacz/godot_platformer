@@ -123,8 +123,6 @@ func calculate_move_velocity(
 func hit_checkpoint():
 	Save.load_data()
 	Save.current_checkpoint = global_position
-	print("hit:")
-	print(Save.current_checkpoint)
 	Save.save_data()
 
 func get_new_animation(is_shooting = false):

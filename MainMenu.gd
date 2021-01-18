@@ -25,8 +25,6 @@ func _process(delta):
 
 func init_level():
 	Save.load_data()
-	print("ide:")
-	print(Save.current_checkpoint)
 	set_global_position(Save.current_checkpoint)
 
 	if Save.current_level == 1:
