@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready():
+	Save.load_data()
 	for i in range($Levels.get_child_count()):
 		Save.levels.append(i + 1)
 	for level in $Levels.get_children():
