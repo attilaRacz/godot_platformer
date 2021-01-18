@@ -31,8 +31,8 @@ func load_data():
 	print(file.get_path_absolute())
 	var saved_status = file.get_var()
 	current_checkpoint = Vector2(saved_status.get("pos_x"), saved_status.get("pos_y"))
-	current_level = saved_status.get("current_level")
-	unlocked_levels = saved_status.get("unlocked_levels")
+	current_level = int(saved_status.get("current_level"))
+	unlocked_levels = int(saved_status.get("unlocked_levels"))
 	print(saved_status)
 	file.close()
 	return true
