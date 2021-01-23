@@ -60,9 +60,8 @@ text = ">"
 
 [node name="Play" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/PlayContainer"]
 margin_left = 12.0
-margin_top = -1.0
 margin_right = 63.0
-margin_bottom = 13.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 51, 14 )
 text = "Play"
 
@@ -83,9 +82,8 @@ text = ">"
 
 [node name="Levels" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/LevelsContainer/HBoxContainer"]
 margin_left = 12.0
-margin_top = -1.0
 margin_right = 63.0
-margin_bottom = 13.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 51, 14 )
 text = "Levels"
 
@@ -99,17 +97,15 @@ margin_right = 63.0
 margin_bottom = 14.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/OptionsContainer/HBoxContainer"]
-margin_top = -1.0
 margin_right = 8.0
-margin_bottom = 13.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 8, 14 )
 text = ">"
 
 [node name="Options" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/OptionsContainer/HBoxContainer"]
 margin_left = 12.0
-margin_top = -1.0
 margin_right = 63.0
-margin_bottom = 13.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 51, 14 )
 text = "Options"
 
@@ -123,16 +119,14 @@ margin_right = 63.0
 margin_bottom = 14.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer"]
-margin_top = -1.0
 margin_right = 8.0
-margin_bottom = 13.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 8, 14 )
 text = ">"
 
 [node name="Exit" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitContainer/HBoxContainer"]
 margin_left = 12.0
-margin_top = -1.0
 margin_right = 63.0
-margin_bottom = 13.0
+margin_bottom = 14.0
 rect_min_size = Vector2( 51, 14 )
 text = "Exit"
