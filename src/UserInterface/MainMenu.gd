@@ -34,7 +34,7 @@ func handle_selection(current_selection):
 	if current_selection == 0:
 		init_level()
 	elif current_selection == 1:
-		get_tree().change_scene("res://src/Main/LevelSelector.tscn")
+		get_tree().change_scene("res://src/UserInterface/LevelSelector.tscn")
 		queue_free()
 	elif current_selection == 2:
 		print("Add options")
