@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/UserInterface/LevelSelector.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=2]
 
 [node name="LevelSelector" type="Control"]
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,14 +35,14 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="LevelContainer"]
 margin_right = 174.0
-margin_bottom = 14.0
+margin_bottom = 20.0
 text = "Select Level"
 align = 1
 
 [node name="Levels" type="VBoxContainer" parent="LevelContainer"]
-margin_top = 18.0
+margin_top = 24.0
 margin_right = 174.0
-margin_bottom = 190.0
+margin_bottom = 196.0
 
 [node name="1" type="Button" parent="LevelContainer/Levels"]
 margin_right = 174.0
