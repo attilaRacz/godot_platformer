@@ -10,8 +10,6 @@
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "falling"
 length = 0.01

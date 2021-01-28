@@ -21,7 +21,8 @@ var can_double_jump = false
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
-	set_global_position(State.current_checkpoint)
+	if !State.play_from_start_of_stage:
+		set_global_position(State.current_checkpoint)
 	var camera: Camera2D = $Camera
 	if action_suffix == "_p1":
 		camera.custom_viewport = $"../.."

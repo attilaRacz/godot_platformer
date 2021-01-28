@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/TileSet/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Platforms/Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Levels/Level.gd" type="Script" id=5]
+[ext_resource path="res://src/Levels/CameraControl.gd" type="Script" id=5]
 [ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Levels/Level_2/Level2ParallaxBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/Level_2/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Levels/Music.gd" type="Script" id=9]
+[ext_resource path="res://src/Objects/Gate.tscn" type="PackedScene" id=10]
 
 
 
@@ -141,9 +142,18 @@ position = Vector2( 852.542, -60.2265 )
 stream = ExtResource( 8 )
 autoplay = true
 script = ExtResource( 9 )
+base_volume_db = -40
 
-[node name="Checkpoint" parent="." instance=ExtResource( 6 )]
+[node name="Gate" type="Node2D" parent="."]
 position = Vector2( -32, 176 )
 
-[node name="Checkpoint" parent="Checkpoint" instance=ExtResource( 6 )]
-position = Vector2( 576, -160 )
+[node name="Gate" parent="Gate" instance=ExtResource( 10 )]
+position = Vector2( 576, 320 )
+
+[node name="Checkpoints" type="Node2D" parent="."]
+position = Vector2( 544, 16 )
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 6 )]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 6 )]
+position = Vector2( -576, 160 )

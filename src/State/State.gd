@@ -1,15 +1,17 @@
 extends Node
 
 
-onready var current_checkpoint = Vector2()
-onready var current_level = 1
+var play_from_start_of_stage = true
+var current_checkpoint = Vector2()
+var current_level = 1
 var levels = []
 var unlocked_levels = 1
 
 
 const level_dict = {
 	1: "res://src/Levels/Level_1/Level_1.tscn", 
-	2: "res://src/Levels/Level_2/Level_2.tscn"
+	2: "res://src/Levels/Level_2/Level_2.tscn",
+	3: "res://src/Levels/Level_3/Level_3.tscn"
 	# todo - expand with levels
 	}
 
@@ -41,8 +43,8 @@ func load_data():
 	return true
 
 func move_to_next_level():
+	current_level = int(current_level)
 	current_level += 1
-	current_checkpoint = Vector2()
 	if unlocked_levels < current_level:
 		unlocked_levels = current_level
 	save_data()

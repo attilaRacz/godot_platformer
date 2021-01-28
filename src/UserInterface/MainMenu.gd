@@ -9,11 +9,13 @@ func _ready():
 
 func init_level():
 	State.load_data()
-	set_global_position(State.current_checkpoint)
+	set_global_position(State.current_checkpoint) #todo - törölhető?
 	State.move_to_level(State.current_level)
 
 
 func _on_PlayButton_pressed():
+	State.load_data()
+	State.play_from_start_of_stage = false
 	init_level()
 
 

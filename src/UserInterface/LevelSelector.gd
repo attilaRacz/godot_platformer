@@ -19,8 +19,8 @@ func _ready():
 
 func change_level(level_number):
 	State.current_level = level_number
-	State.current_checkpoint = Vector2()
-	State.save_data()
+	State.save_data() # todo - törölhető?
+	State.play_from_start_of_stage = true
 	State.move_to_level(level_number)
 
 

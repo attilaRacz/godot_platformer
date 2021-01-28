@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/TileSet/TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Platforms/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/CameraControl.gd" type="Script" id=5]
+[ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Levels/Level_2/ParallaxBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
+[ext_resource path="res://src/Levels/Music.gd" type="Script" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "move"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 660, 78 ), Vector2( 660, 178 ), Vector2( 660, 78 ) ]
+}
+
+[node name="Level" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 16
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196612, 1073741825, 0, -196611, 1073741829, 0, -196610, 1073741829, 0, -196609, 1073741829, 0, -262144, 1073741829, 0, -262143, 1073741829, 0, -262142, 1073741829, 0, -262141, 1073741829, 0, -262140, 1073741829, 0, -262139, 1073741829, 0, -262138, 1073741829, 0, -262137, 1073741829, 0, -262136, 1073741829, 0, -262135, 1073741829, 0, -262134, 1073741829, 0, -262133, 1073741829, 0, -262132, 1073741829, 0, -262131, 1073741829, 0, -262130, 1073741829, 0, -262129, 1073741829, 0, -262128, 1073741829, 0, -262127, 1073741829, 0, -262126, 1073741829, 0, -262125, 1073741829, 0, -262124, 1073741829, 0, -262123, 1073741829, 0, -262122, 1073741829, 0, -262121, 1073741829, 0, -262118, 1073741829, 0, -262117, -2147483640, 0, -131076, -536870907, 0, -196581, -2147483643, 0, -65540, -536870907, 0, -131045, -2147483643, 0, -4, -536870907, 0, -65514, 536870920, 0, -65509, -2147483643, 0, 65532, -536870907, 0, 27, -2147483643, 0, 131068, -536870907, 0, 65563, -2147483643, 0, 196604, -536870907, 0, 131089, 536870920, 0, 131099, -2147483643, 0, 262140, -536870907, 0, 196635, -2147483643, 0, 327676, -536870907, 0, 262157, 536870920, 0, 262171, -2147483643, 0, 393212, -536870907, 0, 327707, -2147483643, 0, 458748, -536870907, 0, 393225, 536870920, 0, 393243, -2147483643, 0, 524284, -536870907, 0, 458779, -2147483643, 0, 589820, -536870907, 0, 524293, 536870920, 0, 524315, -2147483643, 0, 655356, -536870907, 0, 589851, -2147483643, 0, 720892, -536870907, 0, 655361, 536870920, 0, 655387, -2147483643, 0, 786428, -536870907, 0, 720923, -2147483643, 0, 851964, -536870907, 0, 786459, -2147483643, 0, 917500, -536870907, 0, 851995, -2147483643, 0, 983036, 536870920, 0, 983037, 536870917, 0, 983038, 536870917, 0, 983039, 536870917, 0, 917504, 536870917, 0, 917505, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0, 917516, 5, 0, 917517, 5, 0, 917518, 5, 0, 917519, 5, 0, 917520, 5, 0, 917521, 5, 0, 917522, 5, 0, 917523, 5, 0, 917524, 5, 0, 917525, 5, 0, 917526, 5, 0, 917527, 5, 0, 917531, -2147483643, 0, 1048572, -536870907, 0, 983067, -2147483643, 0, 1114108, -536870907, 0, 1048603, -2147483643, 0, 1179644, 1073741825, 0, 1179645, 5, 0, 1179646, 5, 0, 1179647, 5, 0, 1114112, 5, 0, 1114113, 5, 0, 1114114, 5, 0, 1114115, 5, 0, 1114116, 5, 0, 1114117, 5, 0, 1114118, 5, 0, 1114119, 5, 0, 1114120, 5, 0, 1114121, 5, 0, 1114122, 5, 0, 1114123, 5, 0, 1114124, 5, 0, 1114125, 5, 0, 1114126, 536870917, 0, 1114127, 5, 0, 1114128, 5, 0, 1114129, 5, 0, 1114130, 5, 0, 1114131, 5, 0, 1114132, 5, 0, 1114133, 5, 0, 1114134, 5, 0, 1114135, 5, 0, 1114136, 5, 0, 1114137, 5, 0, 1114138, 5, 0, 1114139, -2147483640, 0 )
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 660, 78 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
+autoplay = "move"
+anims/move = SubResource( 1 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 824, 512 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 352, 400 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+script = ExtResource( 9 )
+base_volume_db = -40
+
+[node name="Checkpoints" type="Node2D" parent="."]
+position = Vector2( 768, 304 )
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 6 )]
+position = Vector2( -208, -256 )
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 6 )]
+position = Vector2( -592, 128 )
