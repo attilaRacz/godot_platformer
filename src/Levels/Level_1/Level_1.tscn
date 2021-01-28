@@ -17,3 +17,4 @@ script = ExtResource( 1 )
 layer = 100
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 3 )]
+visible = false

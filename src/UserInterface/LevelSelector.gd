@@ -22,3 +22,8 @@ func change_level(level_number):
 	State.current_checkpoint = Vector2()
 	State.save_data()
 	State.move_to_level(level_number)
+
+
+func _on_MainMenuButton_pressed():
+	get_tree().change_scene("res://src/UserInterface/MainMenu.tscn")
+	queue_free()

@@ -19,7 +19,6 @@ func _on_PlayButton_pressed():
 
 func _on_LevelsButton_pressed():
 	get_tree().change_scene("res://src/UserInterface/LevelSelector.tscn")
-	queue_free()
 
 
 func _on_OptionsButton_pressed():

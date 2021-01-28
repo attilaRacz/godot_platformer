@@ -42,7 +42,7 @@ align = 1
 [node name="Levels" type="VBoxContainer" parent="LevelContainer"]
 margin_top = 24.0
 margin_right = 174.0
-margin_bottom = 196.0
+margin_bottom = 240.0
 
 [node name="1" type="Button" parent="LevelContainer/Levels"]
 margin_right = 174.0
@@ -70,3 +70,10 @@ margin_right = 174.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 0, 40 )
 text = "4"
+
+[node name="MainMenuButton" type="Button" parent="LevelContainer/Levels"]
+margin_top = 176.0
+margin_right = 174.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 0, 40 )
+[connection signal="pressed" from="LevelContainer/Levels/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
