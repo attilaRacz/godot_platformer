@@ -119,7 +119,7 @@ func calculate_move_velocity(
 
 
 func hit_checkpoint():
-	State.load_data()
+	#State.load_data() todo - törölhető?
 	State.current_checkpoint = global_position
 	State.save_data()
 

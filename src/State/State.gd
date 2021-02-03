@@ -43,6 +43,7 @@ func load_data():
 	return true
 
 func move_to_next_level():
+	State.play_from_start_of_stage = true
 	current_level = int(current_level)
 	current_level += 1
 	if unlocked_levels < current_level:
