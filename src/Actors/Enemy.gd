@@ -43,7 +43,6 @@ func _physics_process(_delta):
 		_velocity.x = -speed.x
 
 	if is_on_wall():
-		print(self)
 		_velocity.x *= -1
 
 	# We only update the y value of _velocity as we want to handle the horizontal movement ourselves.
@@ -58,7 +57,6 @@ func _physics_process(_delta):
 
 
 func destroy():
-	print("jee")
 	_state = EnemyState.DEAD
 	_velocity = Vector2.ZERO
 

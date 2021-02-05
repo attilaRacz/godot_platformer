@@ -10,7 +10,6 @@ func destroy():
 
 
 func _on_body_entered(body):
-	print(body)
 	if body is Enemy:
 		print("enemy")
 		body.destroy()

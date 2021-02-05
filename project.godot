@@ -260,6 +260,7 @@ splitscreen={
 2d_physics/layer_4="platforms"
 2d_physics/layer_5="ground"
 2d_physics/layer_6="gate"
+2d_physics/layer_7="bullet"
 
 [physics]
 
