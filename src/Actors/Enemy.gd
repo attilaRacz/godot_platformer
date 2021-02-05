@@ -2,12 +2,12 @@ class_name Enemy
 extends Actor
 
 
-enum State {
+enum EnemyState {
 	WALKING,
 	DEAD,
 }
 
-var _state = State.WALKING
+var _state = EnemyState.WALKING
 
 onready var platform_detector = $PlatformDetector
 onready var floor_detector_left = $FloorDetectorLeft
@@ -43,6 +43,7 @@ func _physics_process(_delta):
 		_velocity.x = -speed.x
 
 	if is_on_wall():
+		print(self)
 		_velocity.x *= -1
 
 	# We only update the y value of _velocity as we want to handle the horizontal movement ourselves.
@@ -57,13 +58,14 @@ func _physics_process(_delta):
 
 
 func destroy():
-	_state = State.DEAD
+	print("jee")
+	_state = EnemyState.DEAD
 	_velocity = Vector2.ZERO
 
 
 func get_new_animation():
 	var animation_new = ""
-	if _state == State.WALKING:
+	if _state == EnemyState.WALKING:
 		animation_new = "walk" if abs(_velocity.x) > 0 else "idle"
 	else:
 		animation_new = "destroy"
