@@ -1,7 +1,7 @@
 extends Node
 
 
-var play_from_start_of_stage = true
+var play_from_start_of_stage
 var current_checkpoint = Vector2()
 var current_level = 1
 var levels = []
@@ -43,7 +43,7 @@ func load_data():
 	return true
 
 func move_to_next_level():
-	State.play_from_start_of_stage = true
+	play_from_start_of_stage = true
 	current_level = int(current_level)
 	current_level += 1
 	if unlocked_levels < current_level:
@@ -53,3 +53,8 @@ func move_to_next_level():
 
 func move_to_level(_current_level):
 	get_tree().change_scene(level_dict.get(int(_current_level)))
+
+func play_from_last_checkpoint():
+	load_data()
+	play_from_start_of_stage = false
+	move_to_level(current_level)

@@ -7,16 +7,8 @@ func _ready():
 	play_button.grab_focus()
 
 
-func init_level():
-	State.load_data()
-	set_global_position(State.current_checkpoint) #todo - törölhető?
-	State.move_to_level(State.current_level)
-
-
 func _on_PlayButton_pressed():
-	State.load_data()
-	State.play_from_start_of_stage = false
-	init_level()
+	State.play_from_last_checkpoint()
 
 
 func _on_LevelsButton_pressed():

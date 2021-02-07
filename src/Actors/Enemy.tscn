@@ -135,9 +135,9 @@ tracks/9/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 6.75
+length = 0.5
 loop = true
-step = 0.25
+step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -145,10 +145,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.75, 1.5, 2.25, 3, 3.75, 4.5, 5.25, 6, 6.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 5, 6, 5, 6, 5, 6, 7, 6, 7, 5 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -198,7 +198,7 @@ hue_variation = 0.05
 hue_variation_random = 0.46
 
 [node name="Enemy" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 25
 script = ExtResource( 5 )
 speed = Vector2( 75, 250 )
@@ -225,6 +225,7 @@ collision_mask = 24
 material = SubResource( 1 )
 texture = ExtResource( 4 )
 hframes = 8
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/destroy = SubResource( 2 )

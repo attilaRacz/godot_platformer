@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/TileSet/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/audio/music/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/Levels/Music.gd" type="Script" id=9]
 [ext_resource path="res://src/Objects/Gate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Objects/PitSensor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 4.0
@@ -101,3 +102,9 @@ base_volume_db = -40
 
 [node name="Gate" parent="Gate" instance=ExtResource( 10 )]
 position = Vector2( 568, 240 )
+
+[node name="PitSensor" type="Node2D" parent="."]
+
+[node name="PitSensor" parent="PitSensor" instance=ExtResource( 11 )]
+position = Vector2( 208, 448 )
+scale = Vector2( 0.5, 0.5 )

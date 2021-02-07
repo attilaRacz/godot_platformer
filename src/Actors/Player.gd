@@ -119,8 +119,8 @@ func calculate_move_velocity(
 
 
 func hit_checkpoint():
-	#State.load_data() todo - törölhető?
 	State.current_checkpoint = global_position
+	State.play_from_start_of_stage = false
 	State.save_data()
 
 func get_new_animation(is_shooting = false):
