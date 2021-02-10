@@ -95,6 +95,7 @@ target_fps="60"
 [autoload]
 
 State="*res://src/State/State.gd"
+Game="*res://src/Main/Game.gd"
 
 [debug]
 

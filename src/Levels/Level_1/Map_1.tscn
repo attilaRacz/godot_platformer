@@ -81,10 +81,10 @@ anims/move = SubResource( 1 )
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 2 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 248, 24 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 2 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 312, 296 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]

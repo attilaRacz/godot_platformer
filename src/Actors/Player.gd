@@ -17,6 +17,7 @@ const MAX_WALL_SLIDE_SPEED = 50
 var double_jumps = 0
 var max_num_double_jumps = 2
 var can_double_jump = false
+var is_alive = true
 
 
 func _ready():
@@ -51,46 +52,62 @@ func _ready():
 # - If you split the character into a state machine or more advanced pattern,
 #   you can easily move individual functions.
 func _physics_process(_delta):
-	if is_on_floor(): double_jumps = max_num_double_jumps
-	
-	if Input.is_action_just_pressed("jump"):
-		if double_jumps > 0:
-			double_jumps -= 1
-			can_double_jump = true
-		else: can_double_jump = false
-	
-	var direction = get_direction()
-
-	var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
-	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
-
-	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
-	var is_on_platform = platform_detector.is_colliding()
-	_velocity = move_and_slide_with_snap(
-		_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
-	)
-
-	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
-	# This will make Robi face left or right depending on the direction you move.
-	if direction.x != 0:
-		sprite.scale.x = 1 if direction.x > 0 else -1
-
-	# We use the sprite's scale to store the players look direction which allows us to shoot
-	# bullets forward.
-	var is_shooting = false
-	if Input.is_action_just_pressed("shoot" + action_suffix):
-		is_shooting = gun.shoot(sprite.scale.x)
+	if is_alive:
+		if is_on_floor(): double_jumps = max_num_double_jumps
 		
-	if is_on_wall() && (Input.is_action_pressed("move_right") || Input.is_action_pressed("move_left")):
-		if _velocity.y >= 0.0:
-			_velocity.y = min(_velocity.y + WALL_SLIDE_ACCELERATION, MAX_WALL_SLIDE_SPEED)
+		if Input.is_action_just_pressed("jump"):
+			if double_jumps > 0:
+				double_jumps -= 1
+				can_double_jump = true
+			else: can_double_jump = false
+		
+		var direction = get_direction()
 
-	var animation = get_new_animation(is_shooting)
+		var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
+		_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+
+		var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
+		var is_on_platform = platform_detector.is_colliding()
+		_velocity = move_and_slide_with_snap(
+			_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
+		)
+
+		# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
+		# This will make Robi face left or right depending on the direction you move.
+		if direction.x != 0:
+			sprite.scale.x = 1 if direction.x > 0 else -1
+
+		# We use the sprite's scale to store the players look direction which allows us to shoot
+		# bullets forward.
+		var is_shooting = false
+		if Input.is_action_just_pressed("shoot" + action_suffix):
+			is_shooting = gun.shoot(sprite.scale.x)
+			
+		if is_on_wall() && (Input.is_action_pressed("move_right") || Input.is_action_pressed("move_left")):
+			if _velocity.y >= 0.0:
+				_velocity.y = min(_velocity.y + WALL_SLIDE_ACCELERATION, MAX_WALL_SLIDE_SPEED)
+		
+		check_if_collided_with_enemy()
+		
+		play_animation(is_shooting)
+
+func play_animation(_is_shooting):
+	var animation = get_new_animation(_is_shooting)
 	if animation != animation_player.current_animation and shoot_timer.is_stopped():
-		if is_shooting:
+		if _is_shooting:
 			shoot_timer.start()
 		animation_player.play(animation)
 
+func check_if_collided_with_enemy():
+	if get_slide_count() > 0:
+			for i in range(get_slide_count()):
+				if "Enemy" in get_slide_collision(i).collider.name:
+					dead()
+
+func dead():
+	is_alive = false
+	animation_player.play("dead")
+	Game.kill_player()
 
 func get_direction():
 	return Vector2(

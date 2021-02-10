@@ -50,6 +50,11 @@ func _physics_process(_delta):
 
 	# We flip the Sprite depending on which way the enemy is moving.
 	sprite.scale.x = 1 if _velocity.x > 0 else -1
+	
+	if get_slide_count() > 0:
+		for i in range(get_slide_count()):
+			if get_slide_collision(i).collider is Player:
+				get_slide_collision(i).collider.dead()
 
 	var animation = get_new_animation()
 	if animation != animation_player.current_animation:
