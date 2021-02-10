@@ -9,6 +9,7 @@ onready var animation_player = $AnimationPlayer
 onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var gun = sprite.get_node(@"Gun")
+onready var death_timer = $DeathTimer
 
 const FLOOR_DETECT_DISTANCE = 20.0
 const WALL_SLIDE_ACCELERATION = 10
@@ -35,15 +36,6 @@ func _ready():
 
 # Physics process is a built-in loop in Godot.
 # If you define _physics_process on a node, Godot will call it every frame.
-
-# We use separate functions to calculate the direction and velocity to make this one easier to read.
-# At a glance, you can see that the physics process loop:
-# 1. Calculates the move direction.
-# 2. Calculates the move velocity.
-# 3. Moves the character.
-# 4. Updates the sprite direction.
-# 5. Shoots bullets.
-# 6. Updates the animation.
 
 # Splitting the physics process logic into functions not only makes it
 # easier to read, it help to change or improve the code later on:
@@ -88,8 +80,8 @@ func _physics_process(_delta):
 				_velocity.y = min(_velocity.y + WALL_SLIDE_ACCELERATION, MAX_WALL_SLIDE_SPEED)
 		
 		check_if_collided_with_enemy()
-		
-		play_animation(is_shooting)
+		if is_alive:
+			play_animation(is_shooting)
 
 func play_animation(_is_shooting):
 	var animation = get_new_animation(_is_shooting)
@@ -107,7 +99,8 @@ func check_if_collided_with_enemy():
 func dead():
 	is_alive = false
 	animation_player.play("dead")
-	Game.kill_player()
+	print("playing")
+	death_timer.start(0.5)
 
 func get_direction():
 	return Vector2(
@@ -151,3 +144,7 @@ func get_new_animation(is_shooting = false):
 	if is_shooting:
 		animation_new += "_weapon"
 	return animation_new
+
+
+func _on_Death_timeout():
+	Game.kill_player()
