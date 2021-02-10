@@ -4,6 +4,7 @@ extends Actor
 
 enum EnemyState {
 	WALKING,
+	ATTACK,
 	DEAD,
 }
 
@@ -54,7 +55,7 @@ func _physics_process(_delta):
 	if get_slide_count() > 0:
 		for i in range(get_slide_count()):
 			if get_slide_collision(i).collider is Player:
-				get_slide_collision(i).collider.dead()
+				attack(get_slide_collision(i).collider)
 
 	var animation = get_new_animation()
 	if animation != animation_player.current_animation:
@@ -65,11 +66,18 @@ func destroy():
 	_state = EnemyState.DEAD
 	_velocity = Vector2.ZERO
 
+func attack(_player):
+	_state = EnemyState.ATTACK
+	_velocity = Vector2.ZERO
+	_player.dead()
+
 
 func get_new_animation():
 	var animation_new = ""
 	if _state == EnemyState.WALKING:
 		animation_new = "walk" if abs(_velocity.x) > 0 else "idle"
+	elif _state == EnemyState.ATTACK:
+		animation_new = "attack"
 	else:
 		animation_new = "destroy"
 	return animation_new

@@ -99,8 +99,7 @@ func check_if_collided_with_enemy():
 func dead():
 	is_alive = false
 	animation_player.play("dead")
-	print("playing")
-	death_timer.start(0.5)
+	death_timer.start(1)
 
 func get_direction():
 	return Vector2(
