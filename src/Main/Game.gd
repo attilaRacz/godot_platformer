@@ -31,7 +31,6 @@ func _unhandled_input(event):
 		get_tree().set_input_as_handled()
 
 func kill_player():
-	print(State.play_from_start_of_stage)
 	if State.play_from_start_of_stage:
 		State.move_to_level(State.current_level)
 	else:

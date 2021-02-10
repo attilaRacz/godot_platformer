@@ -68,7 +68,7 @@ func destroy():
 
 func attack(_player):
 	_state = EnemyState.ATTACK
-	_velocity = Vector2.ZERO
+	_velocity = Vector2.LEFT if sprite.scale.x == 1 else Vector2.RIGHT
 	_player.dead()
 
 
