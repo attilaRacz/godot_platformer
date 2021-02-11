@@ -98,7 +98,13 @@ func check_if_collided_with_enemy():
 func dead():
 	is_alive = false
 	animation_player.play("dead")
+	TransitionScreen.fade_out()
 	death_timer.start(1)
+
+func _on_Death_timeout():
+	print("timeout")
+	Game.kill_player()
+
 
 func get_direction():
 	return Vector2(
@@ -142,7 +148,3 @@ func get_new_animation(is_shooting = false):
 	if is_shooting:
 		animation_new += "_weapon"
 	return animation_new
-
-
-func _on_Death_timeout():
-	Game.kill_player()

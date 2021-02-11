@@ -1,6 +1,5 @@
 extends Node
 
-
 var play_from_start_of_stage
 var current_checkpoint = Vector2()
 var current_level = 1
@@ -52,9 +51,11 @@ func move_to_next_level():
 	move_to_level(current_level)
 
 func move_to_level(_current_level):
+	TransitionScreen.fade_in()
 	get_tree().change_scene(level_dict.get(int(_current_level)))
 
 func play_from_last_checkpoint():
+	TransitionScreen.fade_in()
 	load_data()
 	play_from_start_of_stage = false
 	move_to_level(current_level)

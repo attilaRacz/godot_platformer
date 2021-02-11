@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/guy.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
+[ext_resource path="res://src/Levels/TransitionScreen/TransitionScreen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "dead"
@@ -305,4 +306,6 @@ visibility_mode = 1
 
 [node name="DeathTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="TransitionScreen" parent="." instance=ExtResource( 10 )]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_Death_timeout"]

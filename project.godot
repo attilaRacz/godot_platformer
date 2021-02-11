@@ -96,6 +96,7 @@ target_fps="60"
 
 State="*res://src/State/State.gd"
 Game="*res://src/Main/Game.gd"
+TransitionScreen="*res://src/Levels/TransitionScreen/TransitionScreen.tscn"
 
 [debug]
 
