@@ -263,6 +263,8 @@ splitscreen={
 2d_physics/layer_5="ground"
 2d_physics/layer_6="gate"
 2d_physics/layer_7="bullet"
+2d_physics/layer_8="lazer"
+2d_physics/layer_8.32=false
 
 [physics]
 
