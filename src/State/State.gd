@@ -55,7 +55,6 @@ func move_to_level(_current_level):
 	get_tree().change_scene(level_dict.get(int(_current_level)))
 
 func play_from_last_checkpoint():
-	TransitionScreen.fade_in()
 	load_data()
 	play_from_start_of_stage = false
 	move_to_level(current_level)
