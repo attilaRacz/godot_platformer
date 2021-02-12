@@ -8,7 +8,10 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	State.play_from_last_checkpoint()
+	if State.play_from_start_of_stage:
+		State.move_to_level(State.current_level)
+	else:
+		State.play_from_last_checkpoint()
 
 
 func _on_LevelsButton_pressed():

@@ -20,8 +20,9 @@ func save_data():
 	var save_dict = {
 		"current_level" : current_level,
 		"unlocked_levels" : unlocked_levels,
+		"play_from_start_of_stage" : play_from_start_of_stage,
 		"pos_x" : current_checkpoint.x,
-		"pos_y" : current_checkpoint.y,
+		"pos_y" : current_checkpoint.y
 		}
 	file.store_var(save_dict)
 	file.close()
@@ -37,6 +38,7 @@ func load_data():
 	current_checkpoint = Vector2(saved_status.get("pos_x"), saved_status.get("pos_y"))
 	current_level = int(saved_status.get("current_level"))
 	unlocked_levels = int(saved_status.get("unlocked_levels"))
+	play_from_start_of_stage = bool(saved_status.get("play_from_start_of_stage"))
 	print(saved_status)
 	file.close()
 	return true
