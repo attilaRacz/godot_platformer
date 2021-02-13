@@ -9,8 +9,9 @@ onready var _pause_menu = $InterfaceLayer/PauseMenu
 
 
 func _init():
-	OS.min_window_size = OS.window_size
-	OS.max_window_size = OS.get_screen_size()
+	OS.set_borderless_window(true)
+	OS.set_window_fullscreen(true)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _unhandled_input(event):
