@@ -97,12 +97,11 @@ func check_if_collided_with_enemy():
 
 func dead():
 	is_alive = false
-	animation_player.play("dead")
 	TransitionScreen.fade_out()
+	animation_player.play("dead")
 	death_timer.start(1)
 
 func _on_Death_timeout():
-	print("timeout")
 	Game.kill_player()
 
 
