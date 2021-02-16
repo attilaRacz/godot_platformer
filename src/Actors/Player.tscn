@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/art/player/guy.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/player/ricardo_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/sfx/shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
@@ -39,9 +39,9 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 0.01
+length = 0.4
 loop = true
-step = 0.25
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -49,10 +49,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 5 ]
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 9 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -116,10 +116,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 3, 4, 5 ]
+"values": [ 3, 6, 7 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -140,8 +140,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
+length = 1.2
 loop = true
-step = 0.25
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -149,10 +150,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 1, 2, 1 ]
+"values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -203,7 +204,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 3 ]
+"values": [ 8 ]
 }
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -227,9 +228,9 @@ collision_mask = 8
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
-vframes = 2
-hframes = 3
-frame = 1
+offset = Vector2( 0, -1 )
+hframes = 10
+frame = 9
 
 [node name="Gun" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
