@@ -13,6 +13,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "dead"
+length = 2.0
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -20,22 +22,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -90.0 ]
+"values": [ 16, 17, 18, 19 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -73,9 +63,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 4.0
+length = 40.0
 loop = true
-step = 0.25
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -83,10 +73,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 1 ]
+"times": PoolRealArray( 0, 10, 10.4, 16.6, 27.2, 27.4, 27.8, 32.6, 34.8, 35.4, 37.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 14, 11, 10, 10, 14, 13, 12, 14, 12, 10 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -204,7 +194,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 8 ]
+"values": [ 15 ]
 }
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -229,8 +219,9 @@ collision_mask = 8
 position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -1 )
+vframes = 2
 hframes = 10
-frame = 9
+frame = 10
 
 [node name="Gun" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
