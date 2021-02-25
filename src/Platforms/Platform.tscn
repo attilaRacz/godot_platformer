@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/art/platforms/platform1.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.1022, 5.14123 )
+extents = Vector2( 31.0731, 5.14123 )
 
 [node name="Platform" type="KinematicBody2D"]
 z_index = -1
