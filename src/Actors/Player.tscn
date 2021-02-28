@@ -299,5 +299,10 @@ visibility_mode = 1
 [node name="DeathTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="WallJumpTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="TransitionScreen" parent="." instance=ExtResource( 10 )]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_Death_timeout"]
+[connection signal="timeout" from="WallJumpTimer" to="." method="_on_WallJumpTimer_timeout"]

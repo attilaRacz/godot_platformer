@@ -10,6 +10,7 @@ onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var gun = sprite.get_node(@"Gun")
 onready var death_timer = $DeathTimer
+onready var wall_jump_timer = $WallJumpTimer
 
 const FLOOR_DETECT_DISTANCE = 20.0
 const WALL_SLIDE_ACCELERATION = 10
@@ -19,6 +20,8 @@ var double_jumps = 0
 var max_num_double_jumps = 2
 var can_double_jump = false
 var is_alive = true
+var is_wall_jumping = false
+var is_jump_from_floor = true
 
 
 func _ready():
@@ -45,7 +48,12 @@ func _ready():
 #   you can easily move individual functions.
 func _physics_process(_delta):
 	if is_alive:
-		if is_on_floor(): double_jumps = max_num_double_jumps
+		if _velocity.y > 0 and is_on_wall():
+			is_jump_from_floor = false
+			
+		if is_on_floor():
+			double_jumps = max_num_double_jumps
+			is_jump_from_floor = true
 		
 		if Input.is_action_just_pressed("jump"):
 			if double_jumps > 0:
@@ -54,20 +62,38 @@ func _physics_process(_delta):
 			else: can_double_jump = false
 		
 		var direction = get_direction()
+		
+		if Input.is_action_just_pressed("jump"):
+			if !is_on_floor() and (is_on_wall() and Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left")):
+				direction.x *= -1
 
 		var is_jump_interrupted = Input.is_action_just_released("jump" + action_suffix) and _velocity.y < 0.0
 		_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+		
+		if Input.is_action_just_pressed("jump") and !is_jump_from_floor:
+			if is_on_wall() and Input.is_action_pressed("move_right"):
+				_velocity.x = -150
+				is_wall_jumping = true
+				wall_jump_timer.start()
+			if is_on_wall() and Input.is_action_pressed("move_left"):
+				_velocity.x = 150
+				is_wall_jumping = true
+				wall_jump_timer.start()
+			if Input.is_action_just_released("jump"):
+				is_wall_jumping = false
 
 		var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
 		var is_on_platform = platform_detector.is_colliding()
+
 		_velocity = move_and_slide_with_snap(
 			_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false
 		)
 
+		
 		# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
 		if direction.x != 0:
 			sprite.scale.x = 1 if direction.x > 0 else -1
-
+		
 		# We use the sprite's scale to store the players look direction which allows us to shoot
 		# bullets forward.
 		var is_shooting = false
@@ -104,10 +130,12 @@ func dead():
 func _on_Death_timeout():
 	Game.kill_player()
 
+func _on_WallJumpTimer_timeout():
+	is_wall_jumping = false;
+
 
 func get_direction():
-	return Vector2(
-		Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix),
+	return Vector2((Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix)) if !is_wall_jumping else ((Input.get_action_strength("move_right" + action_suffix) - Input.get_action_strength("move_left" + action_suffix)) * -1),
 		-1 if (is_on_floor() || is_on_wall() || can_double_jump) and Input.is_action_just_pressed("jump" + action_suffix) else 0
 	)
 
