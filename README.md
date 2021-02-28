@@ -1,10 +1,10 @@
-# 2D Platformer
+# 2D Platformer Game
 
-This is a pixel art 2D platformer game with graphics and sound.
+This is a pixel art 2D platformer game.
 
 Language: GDScript
 
-Renderer: GLES 3 (particles are not available in GLES 2)
+Renderer: GLES 3
 
 ## Features
 
