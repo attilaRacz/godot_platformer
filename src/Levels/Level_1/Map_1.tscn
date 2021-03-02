@@ -110,25 +110,25 @@ position = Vector2( 568, 240 )
 position = Vector2( 224, 832 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Hazard" type="Node" parent="."]
+[node name="Hazard" type="Node2D" parent="."]
 
-[node name="ElectricHazard" parent="Hazard" instance=ExtResource( 13 )]
-position = Vector2( 256, 352 )
+[node name="ElectricHazard3" parent="Hazard" instance=ExtResource( 13 )]
+position = Vector2( 0, 384 )
+rotation = 1.5708
+
+[node name="ElectricHazard4" parent="Hazard" instance=ExtResource( 13 )]
+position = Vector2( 216, 320 )
 
 [node name="ElectricHazard2" parent="Hazard" instance=ExtResource( 13 )]
 position = Vector2( 32, 672 )
 
-[node name="ElectricHazard3" parent="Hazard" instance=ExtResource( 13 )]
-position = Vector2( 64, 416 )
-rotation = 4.71239
+[node name="ElectricHazard" parent="Hazard" instance=ExtResource( 13 )]
+position = Vector2( 64, 448 )
+rotation = -1.5708
 
 [node name="Laser" parent="Hazard" instance=ExtResource( 12 )]
-position = Vector2( 360, 304 )
+position = Vector2( 32, 584 )
+rotation = -1.5708
 
-[node name="Laser" parent="." instance=ExtResource( 12 )]
-position = Vector2( 48, 656 )
-rotation = 4.71239
-
-[node name="ElectricHazard" parent="Laser" instance=ExtResource( 13 )]
-position = Vector2( 184, -48 )
-rotation = 3.14159
+[node name="Laser2" parent="Hazard" instance=ExtResource( 12 )]
+position = Vector2( 80, 640 )
