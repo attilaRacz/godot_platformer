@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/ricardo_spritesheet.png" type="Texture" id=2]
@@ -59,7 +59,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 5 ]
+"values": [ 21 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -80,7 +80,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-length = 0.5
+length = 0.1
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -93,7 +93,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0 ]
+"values": [ 20 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -113,7 +113,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-length = 0.5
+length = 0.1
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -126,7 +126,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 42 ]
+"values": [ 21 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -147,7 +147,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-length = 1.25
+length = 0.1
 loop = true
 step = 0.25
 tracks/0/type = "value"
@@ -157,10 +157,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 22, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -197,6 +197,22 @@ tracks/0/keys = {
 "values": [ 15 ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "wall_slide_weapon"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 23 ]
+}
+
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 6.12967, 13.7396 )
 
@@ -219,9 +235,9 @@ collision_mask = 8
 position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -1 )
-vframes = 2
+vframes = 3
 hframes = 10
-frame = 10
+frame = 24
 
 [node name="Gun" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
@@ -249,6 +265,7 @@ anims/run = SubResource( 8 )
 anims/run_weapon = SubResource( 9 )
 anims/standing_weapon_ready = SubResource( 10 )
 anims/wall_slide = SubResource( 11 )
+anims/wall_slide_weapon = SubResource( 13 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )
